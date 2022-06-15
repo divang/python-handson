@@ -1,0 +1,131 @@
+Unit: 1
+-------
+- Python Installlation
+-- https://www.python.org/downloads/
+
+-- Windows
+--- https://www.python.org/downloads/windows/
+
+-- Mac
+--- https://www.python.org/downloads/macos/
+
+Version check
+> python --version
+> python -m pip --version
+> python3 -m pip --version
+
+Upgrade:
+> python3 -m pip install -U pip
+
+Isolated Enviornment:
+> python3 -m pip install -U virtualenv
+
+
+Working directory:
+export ML_PATH="$HOME/ml"
+mkdir -p $ML_PATH
+cd $ML_PATH
+virtualenv my_env
+
+Enter into env
+> source my_env/bin/activate
+
+Deatcive env
+> deactivate
+
+Download packages:
+> python3 -m pip install -U jupyter  matplotlib numpy pandas scipy scikit-learn
+
+Lunch local Jupyter notebook
+>jupyter notebook
+
+Module version check
+> import sys
+> assert sys.version_info >= (3,5)
+
+Pip Installation:
+> curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+> python get-pip.py
+> python3 get-pip.py
+Version:
+> pip --version
+Upgrade:
+> python -m pip install --upgrade pip
+
+--> Windows: https://phoenixnap.com/kb/install-pip-windows
+
+
+===========================================
+Hands-On: https://www.w3schools.com/python/
+===========================================
+Python Quickstart
+Python is an interpreted programming language, this means that as a developer you write Python (.py) files in a text editor and then put those files into the python interpreter to be executed.
+
+1: Create a first python code file:
+> Open Text Editor and create a file: helloworld.py
+>> print("Hello, World!")
+python helloworld.py
+
+2: Run python command via command prompt:
+> python
+print("Hello, World!")
+exit()
+
+3: Python Indentation
+if 5 > 2:
+   print("Five is greater than two!")
+
+4: Python Indentation- Syntax Error:
+if 5 > 2:
+  print("Five is greater than two!")
+         print("Five is greater than two!")
+
+5: Python Variables
+> x = 5
+> y = "Hello, World!"
+
+6: Comments- Single line
+#This is a comment.
+print("Hello, World!")
+
+7: Commnets- Multiple lines
+"""
+This is a comment
+written in
+more than just one line
+"""
+print("Hello, World!")
+
+8: Creating Variables
+x = 5
+y = "John"
+print(x)
+print(y)
+
+x = 4       # x is of type int
+x = "Sally" # x is now of type str
+print(x)
+
+9: Casting
+x = str(3)    # x will be '3'
+y = int(3)    # y will be 3
+z = float(3)  # z will be 3.0
+
+10: Get the Type
+x = 5
+y = "John"
+print(type(x))
+print(type(y))
+
+11: Single or Double Quotes?
+x = "John"
+# is the same as
+x = 'John'
+
+12: Case-Sensitive
+a = 4
+A = "Sally"
+#A will not overwrite a
+
+
+
