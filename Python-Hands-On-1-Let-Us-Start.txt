@@ -12,16 +12,15 @@ Unit: 1
 Version check
 > python --version
 > python -m pip --version
-> python3 -m pip --version
+> python3 -m pip --version [Mac/Linux]
 
 Upgrade:
-> python3 -m pip install -U pip
+> python -m pip install -U pip
 
 Isolated Enviornment:
-> python3 -m pip install -U virtualenv
+> python -m pip install -U virtualenv
 
-
-Working directory:
+Working directory: [For Mac/Linux]
 export ML_PATH="$HOME/ml"
 mkdir -p $ML_PATH
 cd $ML_PATH
@@ -34,18 +33,20 @@ Deatcive env
 > deactivate
 
 Download packages:
-> python3 -m pip install -U jupyter  matplotlib numpy pandas scipy scikit-learn
+> python -m pip install -U jupyter  matplotlib numpy pandas scipy scikit-learn
 
 Lunch local Jupyter notebook
->jupyter notebook
+>jupyter notebook [Mac/Linux]
+>python -m notebook [Windows]
+* Getting error about: page does not exist, check the cmd line, there will be a local URL path, copy and paste on browser.
 
-Module version check
+Module version check [in python cmd]
 > import sys
 > assert sys.version_info >= (3,5)
 
 Pip Installation:
 > curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-> python get-pip.py
+> python get-pip.py 
 > python3 get-pip.py
 Version:
 > pip --version
