@@ -1,0 +1,128 @@
+Built-in Data Types
+In programming, data type is an important concept.
+Variables can store data of different types, and different types can do different things.
+Python has the following data types built-in by default, in these categories:
+
+Text Type:	    str
+Numeric Types:	int, float, complex
+Sequence Types:	list, tuple, range
+Mapping Type:	dict
+Set Types:	    set, frozenset
+Boolean Type:	bool
+Binary Types:	bytes, bytearray, memoryview
+None Type:	    NoneType
+
+>>
+x = "Hello World"	str	
+x = 20	int	
+x = 20.5	float	
+x = 1j	complex	
+x = ["apple", "banana", "cherry"]	list	
+x = ("apple", "banana", "cherry")	tuple	
+x = range(6)	range	
+x = {"name" : "John", "age" : 36}	dict	
+x = {"apple", "banana", "cherry"}	set	
+x = frozenset({"apple", "banana", "cherry"})	frozenset	
+x = True	bool	
+x = b"Hello"	bytes	
+x = bytearray(5)	bytearray	
+x = memoryview(bytes(5))	memoryview	
+x = None	NoneType
+
+
+Python Numbers
+There are three numeric types in Python:
+int
+float
+complex
+
+>>
+x = 1    # int
+y = 2.8  # float
+z = 1j   # complex
+
+>>
+x = 3+5j
+y = 5j
+z = -5j
+
+print(type(x))
+print(type(y))
+print(type(z))
+
+Type Conversion
+
+>>
+x = 1    # int
+y = 2.8  # float
+z = 1j   # complex
+
+#convert from int to float:
+a = float(x)
+
+#convert from float to int:
+b = int(y)
+
+#convert from int to complex:
+c = complex(x)
+
+int() - constructs an integer number from an integer literal, a float literal (by removing all decimals), or a string literal (providing the string represents a whole number)
+float() - constructs a float number from an integer literal, a float literal or a string literal (providing the string represents a float or an integer)
+str() - constructs a string from a wide variety of data types, including strings, integer literals and float literals
+
+String
+>>
+a = "Hello"
+print(a)
+
+Multiline Strings
+>>
+a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a)
+
+
+a = '''Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.'''
+print(a)
+
+Strings are Arrays
+>>
+a = "Hello, World!"
+print(a[1])
+
+Looping Through a String
+>>
+for x in "banana":
+  print(x)
+
+String Length
+>>
+a = "Hello, World!"
+print(len(a))
+
+Check String
+>>
+txt = "The best things in life are free!"
+print("free" in txt)
+
+txt = "The best things in life are free!"
+if "free" in txt:
+  print("Yes, 'free' is present.")
+
+Check if NOT
+>>
+txt = "The best things in life are free!"
+print("expensive" not in txt)
+
+
+Slicing
+>>
+b = "Hello, World!"
+print(b[2:5])
+
+
