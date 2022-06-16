@@ -1,3 +1,11 @@
+# This is a python comment single line
+# How to run this code
+# Save to a indentation-example.py
+# First block of the code i.e Calculate Rectangle area [2 arguments]
+# python  indentation-example.py 10 20 
+# Second block of the code i.e Calculate Circle area [1 argument]
+# python  indentation-example.py 10 
+
 import sys
 print("Hello!!")
 print(sys.argv)
