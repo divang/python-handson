@@ -1,0 +1,25 @@
+Create a new py file 
+Python defines a special variable called __name__ that contains a string whose value depends on how the code is being used.
+
+>>>
+def myFirstFun():
+	print("Hello main method")
+	print("The value of __name__ is:", repr(__name__))
+
+if __name__ == "__main__":
+	myFirstFun()
+
+
+Run code with arguments
+>>>
+
+#!/usr/bin/python
+import sys
+
+def add(num1, num2):
+	print(int(num1) + int(num2))
+
+if __name__ == "__main__":
+	print('Number of arguments:', len(sys.argv), 'arguments.')
+	print('Argument List:', str(sys.argv))
+	add(sys.argv[1], sys.argv[2])
