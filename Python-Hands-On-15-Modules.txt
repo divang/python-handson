@@ -1,0 +1,95 @@
+What is a Module?
+Consider a module to be the same as a code library.
+A file containing a set of functions you want to include in your application.
+
+Create a Module
+To create a module just save the code you want in a file with the file extension .py:
+
+def greeting(name):
+  print("Hello, " + name)
+
+Use a Module
+Now we can use the module we just created, by using the import statement:
+
+import mymodule
+mymodule.greeting("Jonathan")  
+
+Re-naming a Module
+import mymodule as mx
+a = mx.person1["age"]
+print(a)
+
+Built-in Modules
+import platform
+
+x = platform.system()
+print(x)
+
+x = dir(platform)
+print(x)
+
+Import From Module
+You can choose to import only parts from a module, by using the from keyword.
+
+
+def greeting(name):
+  print("Hello, " + name)
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+
+from mymodule import person1
+print (person1["age"])
+
+--------------------------------
+-------- In Built Module -------
+--------------------------------
+
+Dates
+A date in Python is not a data type of its own, but we can import a module named datetime to work with dates as date objects.
+
+import datetime
+import math
+import json
+import re
+
+x = datetime.datetime.now()
+x = min(5, 10, 25)
+y = max(5, 10, 25)
+x = abs(-7.25)
+x = pow(4, 3)
+x = math.sqrt(64)
+x = math.ceil(1.4)
+y = math.floor(1.4)
+x = math.pi
+
+import json
+
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+# parse x:
+y = json.loads(x)
+# the result is a Python dictionary:
+print(y["age"])
+
+# a Python object (dict):
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+
+# convert into JSON:
+y = json.dumps(x)
+
+# the result is a JSON string:
+print(y)
+
+# https://www.w3schools.com/python/python_regex.asp
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+
+
