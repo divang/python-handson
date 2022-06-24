@@ -1,0 +1,72 @@
+What is NumPy?
+- NumPy stands for Numerical Python.
+- NumPy is a Python library used for working with arrays.
+- It also has functions for working in domain of linear algebra, fourier transform, and matrices.
+- In Python we have lists that serve the purpose of arrays, but they are slow to process.
+- NumPy aims to provide an array object that is up to 50x faster than traditional Python lists.
+- The array object in NumPy is called ndarray, it provides a lot of supporting functions that make working with ndarray very easy.
+- NumPy arrays are stored at one continuous place in memory unlike lists, so processes can access and manipulate them very efficiently.
+- This behavior is called locality of reference in computer science.
+- This is the main reason why NumPy is faster than lists. Also it is optimized to work with latest CPU architectures.
+
+>>>
+pip install numpy
+
+
+To create an ndarray, we can pass a list, tuple or any array-like object into the array() method, and it will be converted into an ndarray:
+>>>
+import numpy as np
+arr = np.array([1, 2, 3, 4, 5])
+print(np.__version__)
+
+
+Dimensions in Arrays:
+0-D arrays/Scalars
+Ihese are the elements in an array. Each value in an array is a 0-D array.
+>>>
+arr = np.array(42)
+
+1-D Arrays
+An array that has 0-D arrays as its elements is called uni-dimensional or 1-D array.
+>>>
+arr = np.array([1, 2, 3, 4, 5])
+
+2-D Arrays/Matix
+An array that has 1-D arrays as its elements is called a 2-D array.
+These are often used to represent matrix or 2nd order tensors.
+>>>
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+3-D arrays
+An array that has 2-D arrays (matrices) as its elements is called 3-D array.
+
+Check Number of Dimensions?
+NumPy Arrays provides the ndim attribute that returns an integer that tells us how many dimensions the array have.
+>>>
+arr.ndim
+
+Higher Dimensional Arrays
+define the number of dimensions by using the ndmin argument.
+>>>
+arr = np.array([1, 2, 3, 4], ndmin=5)
+
+Access Array Elements
+>>>
+arr = np.array([1, 2, 3, 4])
+print(arr[0])
+
+Access 2-D/3-D Arrays
+>>>
+arr = np.array([[1,2,3,4,5], [6,7,8,9,10]])
+print('2nd element on 1st row: ', arr[0, 1])
+
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+print(arr[0, 1, 2])
+
+
+
+
+
+
+
+
