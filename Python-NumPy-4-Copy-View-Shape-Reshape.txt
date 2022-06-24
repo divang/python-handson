@@ -1,0 +1,85 @@
+The Difference Between Copy and View
+The main difference between a copy and a view of an array is that the copy is a new array, and the view is just a view of the original array.
+
+Copy
+>>>
+arr = np.array([1, 2, 3, 4, 5])
+x = arr.copy()
+arr[0] = 42
+
+View:
+>>>
+arr = np.array([1, 2, 3, 4, 5])
+x = arr.view()
+arr[0] = 42
+
+Check if Array Owns its Data
+
+arr = np.array([1, 2, 3, 4, 5])
+x = arr.copy()
+y = arr.view()
+print(x.base)
+print(y.base)
+
+Shape of an Array
+The shape of an array is the number of elements in each dimension.
+
+Print the shape of a 2-D array:
+>>>
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+print(arr.shape)
+>[2,4]
+
+arr = np.array([1, 2, 3, 4], ndmin=5)
+print('shape of array :', arr.shape)
+>[1,1,1,1,4]
+
+Reshaping arrays
+Reshaping means changing the shape of an array.
+
+Reshape From 1-D to 2-D
+The outermost dimension will have 4 arrays, each with 3 elements:
+>>>
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+newarr = arr.reshape(2, 6)
+>[[1, 2, 3, 4, 5, 6], 
+  [7, 8, 9, 10, 11, 12]]
+
+Reshape From 1-D to 3-D
+The outermost dimension will have 2 arrays that contains 3 arrays, each with 2 elements:
+>>>
+newarr = arr.reshape(2, 3, 2)
+
+>
+[
+ [
+  [ 1,  2],
+  [ 3,  4],
+  [ 5,  6]
+ ],
+ [
+  [ 7,  8],
+  [ 9, 10],
+  [11, 12]
+ ]
+] 
+
+
+Unknown Dimension
+You are allowed to have one "unknown" dimension.
+Meaning that you do not have to specify an exact number for one of the dimensions in the reshape method.
+Pass -1 as the value, and NumPy will calculate this number for you.
+>>>
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+newarr = arr.reshape(2, 2, -1)
+print(newarr)
+>
+[[[1, 2],
+[3, 4]],
+[[5, 6],
+[7, 8]]]
+
+** Flattening the arrays
+>>>
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+newarr = arr.reshape(-1)
