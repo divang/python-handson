@@ -1,0 +1,95 @@
+Joining NumPy Arrays
+>>>
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+arr = np.concatenate((arr1, arr2))
+
+Join two 2-D arrays along rows (axis=1):
+
+>>> a1=np.array([[[1,2],[3,4]],[[5,6],[7,8]]])
+>>> a2=np.array([[[11,22],[33,44]],[[55,66],[77,88]]])
+>>> a_0=np.concatenate((a1,a2))
+>>> a_0
+array([[[ 1,  2],
+        [ 3,  4]],
+
+       [[ 5,  6],
+        [ 7,  8]],
+
+       [[11, 22],
+        [33, 44]],
+
+       [[55, 66],
+        [77, 88]]])
+>>> a_1=np.concatenate((a1,a2), axis=1)
+>>> a_1
+array([[[ 1,  2],
+        [ 3,  4],
+        [11, 22],
+        [33, 44]],
+
+       [[ 5,  6],
+        [ 7,  8],
+        [55, 66],
+        [77, 88]]])
+>>> a_2=np.concatenate((a1,a2), axis=2)
+>>> a_2
+array([[[ 1,  2, 11, 22],
+        [ 3,  4, 33, 44]],
+
+       [[ 5,  6, 55, 66],
+        [ 7,  8, 77, 88]]])
+
+
+Splitting NumPy Arrays
+Splitting is reverse operation of Joining.
+
+>>> arr = np.array([1, 2, 3, 4, 5, 6])
+>>> newarr = np.array_split(arr, 3)
+>>> newarr
+[array([1, 2]), array([3, 4]), array([5, 6])]
+
+>>> newarr = np.array_split(arr, 4)
+>>> newarr
+[array([1, 2]), array([3, 4]), array([5]), array([6])]
+
+>>> arr = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]])
+>>> newarr = np.array_split(arr, 3)
+>>> newarr
+[array([[1, 2],
+       [3, 4]]), array([[5, 6],
+       [7, 8]]), array([[ 9, 10],
+       [11, 12]])]
+
+
+Search:
+You can search an array for a certain value, and return the indexes that get a match.
+
+>>> arr=np.array([4,2,3,4,5,4,6,7,4])
+>>> np.where( arr % 2 != 0)
+(array([2, 4, 7]),)
+
+Search Sorted:
+
+>>> arr = np.array([6, 7, 8, 9])
+>>> np.searchsorted(arr, 7)
+1
+
+>>>np.searchsorted(arr, 7, side='right')
+2
+
+>>> np.searchsorted(arr, [2, 7, 6])
+array([0, 1, 0])
+
+Sorting Arrays
+Sorting means putting elements in an ordered sequence.
+
+>>>np.sort(arr)
+
+Filter
+Getting some elements out of an existing array and creating a new array out of them is called filtering.
+
+>>> 
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+filter_arr = arr % 2 == 0
+newarr = arr[filter_arr]
