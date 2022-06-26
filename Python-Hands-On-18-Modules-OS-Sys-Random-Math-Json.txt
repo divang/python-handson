@@ -1,0 +1,141 @@
+==========
+OS Module:
+==========
+The OS module in Python provides functions for interacting with the operating system. OS comes under Python’s standard utility modules. This module provides a portable way of using operating system-dependent functionality. The *os* and *os.path* modules include many functions to interact with the file system.
+
+>>>
+import os 
+     
+# Get the current working 
+# directory (CWD) 
+cwd = os.getcwd() 
+
+# Changing the CWD 
+os.chdir('../') 
+
+>>> parent_dir=os.getcwd()
+>>> parent_dir
+'/Users/divang/Desktop'
+>>> tmp_dir='temp'
+
+# File path seperator will be take care of os.path.join function.So 'join' will work fine in Windows/Linux env
+>>> path=os.path.join(parent_dir, tmp_dir)
+>>> path
+'/Users/divang/Desktop/temp'
+
+# Path exists or not
+>>> os.path.exists(path)
+
+# Create directory
+>>> os.mkdir(path)
+
+# Multiple directories creation
+>>> paths=os.path.join(path, 'tmp1','tmp2')
+>>> paths
+'/Users/divang/Desktop/temp/tmp1/tmp2'
+>>> os.makedirs(paths)
+
+# List directory
+>>>os.listdir('temp')
+
+# Remove the file 
+>>>os.remove(path) 
+
+# Remove dir
+>>>os.rmdir('temp/tmp1/tmp2')
+
+# Machine details
+>>>os.uname()
+> posix.uname_result(sysname='Darwin', nodename='Air.local', release='2.0', version='Darwin Kernel Version; root:xnu-.3~9/RELEASE_X86_64', machine='x86_64')
+
+# Rename file
+>>>os.rename('old.txt','New.txt')
+
+===========
+Sys Module:
+===========
+>>>
+import sys
+sys.argv
+sys.version
+sys.path
+sys.version
+sys.platform
+sys.exit()
+sys.modules
+
+Math Module:
+>>>
+import math
+min(5, 10, 25)
+max(5, 10, 25)
+abs(-7.25)
+pow(4, 3)
+math.sqrt(64)
+math.ceil(1.4)
+math.floor(1.4)
+math.pi
+
+==============
+Random Module:
+==============
+>>> import random as rd
+>>> list=[1,2,3,4,5,6,7,8,9]
+# Return a random item from a list, tuple, or string.
+>>> rd.choice(list)
+3
+>>> rd.choice(list)
+6
+>>> rd.choice(list)
+
+seed:
+As stated above random module creates pseudo-random numbers. Random numbers depend on the seeding value. For example, if the seeding value is 5 then the output of the below program will always be the same.
+>>> rd.seed(5)
+>>> rd.random()
+0.6229016948897019 [always be same rand number, if seed 5]
+>>> rd.random()
+0.7417869892607294
+
+Creating Random Integers
+>>> rd.randint(0,10)
+10
+
+Creating Random Floats
+>>>random.random()
+
+Shuffling List: shuffle the same object
+>>> list
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> rd.shuffle(list)
+>>> list
+[2, 9, 7, 3, 8, 5, 6, 4, 1]
+
+=====
+Json:
+=====
+
+>>> import json
+
+>>> x =  '{ "name":"John", "age":30, "city":"New York"}'
+# JSON string can be parsed it by using the json.loads() method.
+>>> y=json.loads(x)
+>>> y["city"]
+'New York'
+
+# a Python object (dict):
+# Python object can be converted it into a JSON string by using the json.dumps() method.
+
+x = {
+  "name": "John",
+  "age": 30,
+  "married": True,
+  "divorced": False,
+  "children": ("Ann","Billy"),
+  "pets": None,
+  "cars": [
+    {"model": "BMW 230", "mpg": 27.5},
+    {"model": "Ford Edge", "mpg": 24.1}
+  ]
+}
+
+print(json.dumps(x))
