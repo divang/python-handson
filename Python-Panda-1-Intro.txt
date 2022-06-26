@@ -1,0 +1,237 @@
+What is Pandas?
+Pandas is a Python library used for working with data sets.
+It has functions for analyzing, cleaning, exploring, and manipulating data.
+
+What Can Pandas Do?
+Pandas gives you answers about the data. Like:
+
+Is there a correlation between two or more columns?
+What is average value?
+Max value?
+Min value?
+
+
+pip install pandas
+>>>
+import pandas as pd
+mydataset = {
+  'cars': ["BMW", "Volvo", "Ford"],
+  'passings': [3, 7, 2]
+}
+pd.DataFrame(mydataset)
+pd.__version__
+
+
+What is a Series?
+A Pandas Series is like a column in a table.
+It is a one-dimensional array holding data of any type.
+
+>>> a = [1, 7, 2]
+>>> pd.Series(a)
+0    1
+1    7
+2    2
+
+
+Labels
+If nothing else is specified, the values are labeled with their index number. First value has index 0, second value has index 1 etc.
+This label can be used to access a specified value.
+
+>>> pd.Series(a)[1]
+7
+
+Create Labels
+With the index argument, you can name your own labels.
+
+>>> pd.Series(a, index = ["x", "y", "z"])
+x    1
+y    7
+z    2
+>>> pd.Series(a)["y"]
+7
+
+Key/Value Objects as Series
+>>> calories = {"day1": 420, "day2": 380, "day3": 390}>>> 
+>>> myvar = pd.Series(calories)
+>>> print(myvar)
+day1    420
+day2    380
+day3    390
+
+Create a Series using only data from "day1" and "day2":
+>>> calories = {"day1": 420, "day2": 380, "day3": 390}
+>>> myvar = pd.Series(calories, index = ["day1", "day2"])
+>>> print(myvar)
+day1    420
+day2    380
+
+
+DataFrames
+Data sets in Pandas are usually multi-dimensional tables, called DataFrames.
+Series is like a column, a DataFrame is the whole table.
+
+>>> data = {
+  "calories": [420, 380, 390],
+  "duration": [50, 40, 45]
+}
+
+>>> myvar = pd.DataFrame(data)
+>>> myvar
+   calories  duration
+0       420        50
+1       380        40
+2       390        45
+
+Locate Row
+As you can see from the result above, the DataFrame is like a table with rows and columns.
+Pandas use the loc attribute to return one or more specified row(s)
+
+>>> myvar.loc[0]
+calories    420
+duration     50
+
+#use a list of indexes:
+>>> myvar.loc[[0,2]]
+   calories  duration
+0       420        50
+2       390        45
+
+
+# Named Indexes
+>>>
+data = {
+  "calories": [420, 380, 390],
+  "duration": [50, 40, 45]
+}
+
+df = pd.DataFrame(data, index = ["day1", "day2", "day3"])
+
+Locate Named Indexes
+>>>print(df.loc["day2"])
+
+Read CSV Files
+
+>>>
+df = pd.read_csv('data.csv')
+print(df.to_string()) 
+
+max_rows
+>>>
+print(pd.options.display.max_rows) 
+
+Read JSON
+>>>df = pd.read_json('data.json')
+
+
+data = {
+  "Duration":{
+    "0":60,
+    "1":60,
+    "2":60,
+    "3":45,
+    "4":45,
+    "5":60
+  },
+  "Pulse":{
+    "0":110,
+    "1":117,
+    "2":103,
+    "3":109,
+    "4":117,
+    "5":102
+  },
+  "Maxpulse":{
+    "0":130,
+    "1":145,
+    "2":135,
+    "3":175,
+    "4":148,
+    "5":127
+  },
+  "Calories":{
+    "0":409,
+    "1":479,
+    "2":340,
+    "3":282,
+    "4":406,
+    "5":300
+  }
+}
+
+df = pd.DataFrame(data)
+
+Viewing the Data
+>>>
+df = pd.read_csv('data.csv')
+print(df.head(10))
+print(df.tail()) 
+
+
+Info about Data
+>>> pd.read_json('data.json').info()
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 169 entries, 0 to 168
+Data columns (total 4 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   Duration  169 non-null    int64  
+ 1   Pulse     169 non-null    int64  
+ 2   Maxpulse  169 non-null    int64  
+ 3   Calories  164 non-null    float64
+
+
+Mean/Median
+>>>
+df["Calories"].mean()
+df["Calories"].median()
+df.sum()
+
+The where function and drop NaN:
+>>>
+df['Pulse'].where(df['Pulse'] >150).dropna()
+
+Unique:
+>>>
+df.Pulse.nunique()
+
+Memory usage in bytes
+>>>
+df.memory_usage()
+
+Index/Columns
+>>>
+df.index
+df.columns
+
+To NumPY
+>>>
+df.to_numpy()
+
+Iterate all rows:
+>>>
+for x in df.index:
+  if df.loc[x, "Duration"] > 120:
+    df.loc[x, "Duration"] = 120
+
+Pandas - Data Correlations
+A great aspect of the Pandas module is the corr() method.
+The corr() method calculates the relationship between each column in your data set.
+
+>>> df.corr()
+          Duration     Pulse  Maxpulse  Calories
+Duration  1.000000 -0.238237 -0.072727  0.820102
+Pulse    -0.238237  1.000000  0.786535  0.025121
+Maxpulse -0.072727  0.786535  1.000000  0.203813
+Calories  0.820102  0.025121  0.203813  1.000000
+
+Perfect Correlation:
+We can see that "Duration" and "Duration" got the number 1.000000, which makes sense, each column always has a perfect relationship with itself.
+
+Good Correlation:
+"Duration" and "Calories" got a 0.922721 correlation, which is a very good correlation, and we can predict that the longer you work out, the more calories you burn, and the other way around: if you burned a lot of calories, you probably had a long work out.
+
+Bad Correlation:
+"Duration" and "Maxpulse" got a 0.009403 correlation, which is a very bad correlation, meaning that we can not predict the max pulse by just looking at the duration of the work out, and vice versa.
+
+
+Dataset: https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html
