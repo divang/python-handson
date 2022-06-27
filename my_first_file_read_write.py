@@ -1,33 +1,43 @@
 import sys
 class File_Handler:
-	log_directory = None
+	file_directory = None
 
 	def __init__(self, directory_path):
-		self.log_directory = directory_path
+		self.file_directory = directory_path
 
 	def read(self, file_name):
-		absolute_path = self.log_directory + "/" + file_name
+		absolute_path = self.file_directory + "/" + file_name
+		file = None
+		try:
+			file = open(absolute_path, "r")
 
-		file = open(absolute_path, "r")
+			for line in file:
+				print("Line read from file => ", line)			
+		except:
+			print("File is not present in ", self.file_directory)
+		finally:
+			if file is not None:
+				file.close()							
 
-		for line in file:
-			print("Line read from file => ", line)			
 
-log_file_name = sys.argv[1]
+	def write(self, file_name):
+		absolute_path = self.file_directory + "/" + file_name
+		file = None
+		try:
+			file = open(absolute_path, "a")
+			file.write("It is written via python code...")
+			print("Data successfully written to file.")
+		except:
+			print("File is not present in ", self.file_directory)
+		finally:
+			if file is not None:
+				file.close()							
 
-# Creation of a OBJECT via Class File_Handler
-try:
-	log_object = File_Handler("/Users/divang/Desktop/logs")
-	log_object.read(log_file_name)
-	print("File found in log folder")
-	sys.exit(1)
-except:
-	print("...... Looks like you have supplied the data file not the log file .....")
 
-try:	
-	data_object = File_Handler("/Users/divang/Desktop/data")
-	data_object.read(log_file_name)
-	print("File found in data folder")
-except:
-	print("Looks like you have supplied the neither log nor data file")
+file_name = sys.argv[1]
+# Write the file
+log_object = File_Handler("/Users/divang/Desktop/data")
+log_object.write(file_name)
 
+# Reading the above written file
+log_object.read(file_name) 
