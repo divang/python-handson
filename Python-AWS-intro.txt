@@ -1,0 +1,35 @@
+Ref: https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+Examples: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/examples.html
+
+BOTO3
+Needed to install or update the AWS SDK for Python.
+
+The SDK is composed of two key Python packages: Botocore (the library providing the low-level functionality shared between the Python SDK and the AWS CLI) and Boto3 (the package implementing the Python SDK itself).
+
+Before installing Boto3, install Python 3.7 or later; support for Python 3.6 and earlier is deprecated
+
+pip install boto3
+pip install awscrt
+
+Windows: Install AWS CLI:
+https://docs.aws.amazon.com/cli/v1/userguide/install-windows.html
+
+Mac: Install AWS CLI:
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+
+unzip awscli-bundle.zip
+sudo /usr/local/bin/python3 awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
+AWS CLI setup
+aws configure
+
+divang@prakhars-MacBook-Air Python % aws configure
+AWS Access Key ID [None]: AKIA************
+AWS Secret Access Key [None]: Nzo*****************
+Default region name [None]: us-east-1
+Default output format [None]:
+
+>>>
+import boto3
+# Let's use Amazon S3
+s3 = boto3.resource('s3')
