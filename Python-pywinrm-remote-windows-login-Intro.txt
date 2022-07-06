@@ -1,0 +1,47 @@
+Ref: https://github.com/diyan/pywinrm
+Ref: https://adamtheautomator.com/python-winrm/#Creating_a_PowerShell_Remoting_Session
+
+
+pip install pywinrm
+>>>
+import winrm
+
+
+Run a process on a remote host
+>>>
+
+s = winrm.Session('windows-host.example.com', auth=('abc.xyz', 'secret'))
+r = s.run_cmd('ipconfig', ['/all'])
+>>> r.status_code
+0
+>>> r.std_out
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : WINDOWS-HOST
+   Primary Dns Suffix  . . . . . . . :
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+...
+>>> r.std_err
+
+
+Run Powershell script on remote host
+>>>
+import winrm
+
+ps_script = """$strComputer = $Host
+Clear
+$RAM = WmiObject Win32_ComputerSystem
+$MB = 1048576
+
+"Installed Memory: " + [int]($RAM.TotalPhysicalMemory /$MB) + " MB" """
+
+s = winrm.Session('windows-host.example.com', auth=('john.smith', 'secret'))
+r = s.run_ps(ps_script)
+>>> r.status_code
+0
+>>> r.std_out
+Installed Memory: 3840 MB
+
+>>> r.std_err
